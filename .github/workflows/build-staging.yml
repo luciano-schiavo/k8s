@@ -22,7 +22,7 @@ jobs:
             - name: Docker Login
               uses: docker/login-action@v3.1.0
               with:
-                  registry: ${{ secrets.ACR_REGISTRY_NAME }}
+                  registry: ${{ secrets.ACR_NAME }}
                   username: ${{ secrets.ACR_LOGIN }}
                   password: ${{ secrets.ACR_PASSWORD }}
 
@@ -65,7 +65,7 @@ jobs:
                   az aks update \
                     --name ${{ secrets.AKS_NAME }} \
                     --resource-group ${{ secrets.RESOURCE_GROUP }} \
-                    --attach-acr ${{ secrets.ACR_REGISTRY_NAME }}
+                    --attach-acr ${{ secrets.ACR_NAME }}
         
             - name: Run Helm Deploy
               run: |
