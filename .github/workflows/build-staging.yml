@@ -63,10 +63,10 @@ jobs:
             - name: Attach ACR to AKS
               run: |
                   az aks update \
-                    --name ${{ secrets.AKS_NAME }} \  
+                    --name ${{ secrets.AKS_NAME }} \
                     --resource-group ${{ secrets.RESOURCE_GROUP }} \
-                    --attach-acr ${{ secrets.ACR_REGISTRY_NAME }}   
-
+                    --attach-acr ${{ secrets.ACR_REGISTRY_NAME }}
+        
             - name: Run Helm Deploy
               run: |
                   helm upgrade \
